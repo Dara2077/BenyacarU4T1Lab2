@@ -14,7 +14,7 @@ public class WhileLoopFun {
     public void printDigits(int number) {
         String strNumber = number + "";
         while(strNumber.length() != 0){
-            System.out.println(strNumber.substring(strNumber.length()));
+            System.out.println(strNumber.substring(strNumber.length() -1));
             strNumber = strNumber.substring(0, strNumber.length() -1);
         }
     }
@@ -31,7 +31,7 @@ public class WhileLoopFun {
         int test = 0;
         int count = 0;
         while (test < word.length()){
-            if (word.substring(test, test).equals(letter)){
+            if (word.substring(test, test + 1).equals(letter)){
                 count ++;
             }
             test ++;
@@ -61,9 +61,13 @@ public class WhileLoopFun {
      Precondition: number > 0, threshold > 0
      */
     public int maxDoubles(int number, int threshold) {
+        int count = 0;
+        number *= 2;
         while (number <= threshold){
-
+            count ++;
+            number *=2;
         }
+        return count;
     }
 
     /**Returns true if number is prime (i.e. it has exactly two divisors: 1 and itself) and false
@@ -79,6 +83,17 @@ public class WhileLoopFun {
      but 1 has only a single divisor! (don’t believe it? Google it!)
      */
     public boolean isPrime(int number) {
+        int count = 2;
+        if (number == 1){
+            return false;
+        }
+        while (count < number){
+            if (number %count == 0){
+                return false;
+            }
+            count ++;
+        }
+        return true;
     }
 }
 
